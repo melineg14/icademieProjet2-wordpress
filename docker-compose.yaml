@@ -21,7 +21,10 @@ services:
     volumes:
        - db_data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: p4ssw0rd!
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: mdp
+      # MYSQL_PASSWORD: mdp
     networks:
       - back
   phpmyadmin:
@@ -33,7 +36,10 @@ services:
       - 8080:80
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: p4ssw0rd!
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: mdp
+      # MYSQL_PASSWORD: mdp
+
     networks:
       - back
 networks:
